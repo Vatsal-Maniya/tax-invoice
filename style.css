@@ -1,0 +1,3898 @@
+:root{
+    --green:#0b6b3a;
+    --green-dark:#084a29;
+    --green-light:#eaf7ef;
+    --text:#193328;
+    --muted:#718078;
+    --line:#dce8e0;
+    --white:#ffffff;
+    --danger:#d04444;
+    --shadow:0 12px 35px rgba(18,58,38,.08);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    background:
+        linear-gradient(
+            135deg,
+            #f4faf6,
+            #edf5f0
+        );
+    color:var(--text);
+    font-size:14px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+}
+
+.hidden{
+    display:none!important;
+}
+
+
+/* =====================================================
+   LOGIN 
+===================================================== */
+
+.login-screen{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding:20px;
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            #d9f1e2,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #dff4e7,
+            transparent 30%
+        ),
+        #f5faf7;
+}
+
+.login-card{
+    width:min(420px,100%);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:38px;
+    text-align:center;
+    box-shadow:0 30px 80px rgba(15,70,40,.12);
+}
+
+.login-logo{
+    width:90px;
+    height:90px;
+    margin:auto;
+    display:grid;
+    place-items:center;
+    border-radius:24px;
+    background:#f1f9f4;
+    border:1px solid #d8eadf;
+    overflow:hidden;
+}
+
+.login-logo img{
+    width:80%;
+    height:80%;
+    object-fit:contain;
+}
+
+.login-card h1{
+    margin-top:18px;
+    font-size:28px;
+    color:var(--green-dark);
+}
+
+.login-card p{
+    margin:6px 0 25px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.login-card label{
+    display:block;
+    text-align:left;
+    font-size:11px;
+    font-weight:800;
+    margin:14px 0 6px;
+}
+
+.login-card input{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    outline:none;
+    transition:.2s;
+}
+
+.login-card input:focus{
+    border-color:#55a978;
+    box-shadow:0 0 0 4px #0b6b3a12;
+}
+
+.login-btn{
+    width:100%;
+    margin-top:20px;
+}
+
+.login-error{
+    min-height:18px;
+    color:var(--danger);
+    font-size:12px;
+    margin-top:12px;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app{
+    min-height:100vh;
+    display:flex;
+}
+
+.sidebar{
+    position:fixed;
+    inset:0 auto 0 0;
+    width:255px;
+    padding:22px 16px;
+    background:
+        linear-gradient(
+            180deg,
+            #0b3020,
+            #082319
+        );
+    color:#fff;
+    z-index:20;
+    display:flex;
+    flex-direction:column;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:5px 8px 28px;
+}
+
+.brand-logo{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    background:#fff;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+}
+
+.brand-logo img{
+    width:90%;
+    height:90%;
+    object-fit:contain;
+}
+
+.brand b{
+    display:block;
+    font-size:16px;
+}
+
+.brand small{
+    display:block;
+    color:#a7c7b5;
+    margin-top:3px;
+    font-size:9px;
+}
+
+.nav-btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:13px 14px;
+    margin:4px 0;
+    color:#aec6b9;
+    background:transparent;
+    border-radius:12px;
+    text-align:left;
+    transition:.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+    color:#fff;
+    background:
+        linear-gradient(
+            135deg,
+            #176440,
+            #0d5132
+        );
+    box-shadow:inset 0 0 0 1px #ffffff10;
+}
+
+.nav-icon{
+    width:24px;
+    text-align:center;
+}
+
+.side-company{
+    margin-top:auto;
+    padding:14px;
+    border:1px solid #2a523e;
+    background:#ffffff08;
+    border-radius:14px;
+}
+
+.side-company strong,
+.side-company small{
+    display:block;
+}
+
+.side-company strong{
+    font-size:11px;
+}
+
+.side-company small{
+    margin-top:5px;
+    font-size:9px;
+    color:#9db9aa;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+    margin-left:255px;
+    width:calc(100% - 255px);
+    min-width:0;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    padding:19px 30px;
+    background:#ffffffdd;
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.topbar h1{
+    font-size:23px;
+    color:var(--green-dark);
+}
+
+.topbar p{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.page-section{
+    display:none;
+    max-width:1550px;
+    margin:auto;
+    padding:28px;
+}
+
+.page-section.active{
+    display:block;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.primary-btn,
+.secondary-btn,
+.danger-btn,
+.text-btn{
+    border-radius:11px;
+    padding:10px 15px;
+    font-size:12px;
+    font-weight:800;
+    transition:.2s;
+}
+
+.primary-btn{
+    color:#fff;
+    background:
+        linear-gradient(
+            135deg,
+            #0b6b3a,
+            #17864d
+        );
+    box-shadow:0 8px 18px #0b6b3a22;
+}
+
+.primary-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 12px 25px #0b6b3a2c;
+}
+
+.primary-btn.small{
+    padding:9px 12px;
+}
+
+.secondary-btn{
+    color:#294a39;
+    background:#fff;
+    border:1px solid var(--line);
+}
+
+.secondary-btn:hover{
+    background:#f4faf6;
+    border-color:#b9d4c2;
+}
+
+.danger-btn{
+    color:var(--danger);
+    background:#fff2f2;
+    border:1px solid #f1d1d1;
+}
+
+.text-btn{
+    color:var(--green);
+    background:transparent;
+    padding:5px;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.stat-card{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:20px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.stat-card::after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    right:-35px;
+    top:-35px;
+    border-radius:50%;
+    background:#e9f7ee;
+}
+
+.stat-icon{
+    position:relative;
+    z-index:1;
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border-radius:15px;
+    background:var(--green-light);
+    color:var(--green);
+    font-size:20px;
+    font-weight:900;
+}
+
+.stat-card small{
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.stat-card strong{
+    display:block;
+    margin-top:3px;
+    font-size:20px;
+    color:var(--green-dark);
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:18px;
+    margin-top:18px;
+}
+
+.panel,
+.form-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.panel,
+.form-card{
+    padding:22px;
+}
+
+.panel-head,
+.card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.panel-head h2,
+.card-head h2{
+    font-size:17px;
+    color:var(--green-dark);
+}
+
+.panel-head p,
+.card-head p{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.quick-action{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-align:left;
+    padding:16px;
+    margin-bottom:10px;
+    background:#f8fcf9;
+    border:1px solid var(--line);
+    border-radius:13px;
+    transition:.2s;
+}
+
+.quick-action:hover{
+    transform:translateY(-2px);
+    border-color:#afd0bb;
+    background:#f1faf4;
+}
+
+.quick-action>span{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:var(--green-light);
+    color:var(--green);
+    font-size:20px;
+}
+
+.quick-action b,
+.quick-action small{
+    display:block;
+}
+
+.quick-action small{
+    margin-top:3px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.empty{
+    padding:45px 15px;
+    text-align:center;
+    color:var(--muted);
+}
+
+.empty b{
+    display:block;
+    margin:8px;
+    color:var(--text);
+}
+
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.invoice-toolbar{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.toolbar-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.two-column{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:18px;
+}
+
+.summary-grid{
+    display:grid;
+    grid-template-columns:1.35fr .85fr;
+    gap:18px;
+    margin-top:18px;
+}
+
+.form-card{
+    margin-top:18px;
+}
+
+.two-column>.form-card,
+.summary-grid>.form-card{
+    margin-top:0;
+}
+
+.badge{
+    padding:5px 9px;
+    border-radius:20px;
+    background:#e3f5e9;
+    color:#0c6b3a;
+    font-size:9px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+}
+
+.form-grid.four{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+.form-grid label{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    color:#3d564a;
+    font-size:10px;
+    font-weight:800;
+}
+
+.form-grid label.full{
+    grid-column:1/-1;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--text);
+    border-radius:10px;
+    outline:none;
+    padding:10px 11px;
+    font-size:12px;
+    transition:.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#62a87e;
+    box-shadow:0 0 0 3px #0b6b3a12;
+}
+
+input[readonly],
+textarea[readonly],
+select:disabled{
+    background:#f7faf8;
+    color:#53665d;
+    cursor:not-allowed;
+}
+
+textarea{
+    resize:vertical;
+    line-height:1.5;
+}
+
+.auto-label{
+    display:inline-block;
+    width:max-content;
+    margin-left:4px;
+    padding:3px 7px;
+    border-radius:10px;
+    color:#177045;
+    background:#e9f7ee;
+    font-size:8px;
+}
+
+
+/* =====================================================
+   ITEM TABLE
+===================================================== */
+
+.table-wrap{
+    width:100%;
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:12px;
+}
+
+.item-table{
+    width:100%;
+    min-width:1050px;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+.item-table th{
+    background:#f1f8f3;
+    color:#335344;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.3px;
+    padding:11px 8px;
+    border-bottom:1px solid var(--line);
+    white-space:nowrap;
+}
+
+.item-table td{
+    padding:8px;
+    border-bottom:1px solid #edf2ee;
+    vertical-align:middle;
+}
+
+.item-table tbody tr:last-child td{
+    border-bottom:0;
+}
+
+.item-table input,
+.item-table select{
+    min-width:70px;
+    padding:8px;
+    border-radius:8px;
+    font-size:11px;
+}
+
+.item-table .description{
+    min-width:190px;
+}
+
+.item-table .hsn{
+    min-width:90px;
+}
+
+.item-table .qty,
+.item-table .rate,
+.item-table .discount,
+.item-table .gst,
+.item-table .cess{
+    width:85px;
+}
+
+.item-table .taxable{
+    font-weight:800;
+    white-space:nowrap;
+    color:var(--green-dark);
+}
+
+.remove-item{
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    background:#fff1f1;
+    color:#c53d3d;
+    font-weight:900;
+}
+
+.remove-item:hover{
+    background:#ffe2e2;
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:9px 0;
+    border-bottom:1px dashed #dfe9e3;
+    font-size:12px;
+}
+
+.summary-row span{
+    color:var(--muted);
+}
+
+.summary-row b{
+    color:#294b3a;
+}
+
+.grand-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-top:14px;
+    padding:15px;
+    border-radius:12px;
+    color:#fff;
+    background:
+        linear-gradient(
+            135deg,
+            #0b6b3a,
+            #17864d
+        );
+}
+
+.grand-total span{
+    font-size:12px;
+    font-weight:800;
+}
+
+.grand-total strong{
+    font-size:20px;
+}
+
+.amount-words{
+    margin-top:14px;
+    padding:12px;
+    border-radius:10px;
+    background:#f5faf7;
+    border:1px solid var(--line);
+}
+
+.amount-words small{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.amount-words p{
+    margin-top:5px;
+    color:#294b3a;
+    font-size:11px;
+    font-weight:700;
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   AUTHORIZATION
+===================================================== */
+
+.auth-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    align-items:end;
+}
+
+.auth-box>div:first-child{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.auth-box label{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    color:#3d564a;
+    font-size:10px;
+    font-weight:800;
+}
+
+.signature-preview{
+    min-height:120px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    border:1px dashed #b9d2c2;
+    border-radius:14px;
+    background:#f9fcfa;
+}
+
+.signature-script{
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+    font-size:34px;
+    font-style:italic;
+    color:#174e34;
+    line-height:1;
+    margin-bottom:6px;
+}
+
+.signature-preview strong{
+    font-size:11px;
+}
+
+.signature-preview small{
+    margin-top:3px;
+    color:var(--muted);
+    font-size:9px;
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+.history-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    margin-bottom:10px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:#fbfdfc;
+}
+
+.history-main{
+    min-width:0;
+}
+
+.history-main strong{
+    display:block;
+    color:var(--green-dark);
+    font-size:13px;
+}
+
+.history-main span{
+    display:block;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.history-total{
+    color:var(--green-dark);
+    font-weight:900;
+    white-space:nowrap;
+}
+
+.history-actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+.company-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.company-grid>div{
+    padding:15px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#f9fcfa;
+}
+
+.company-grid .wide{
+    grid-column:1/-1;
+}
+
+.company-grid b,
+.company-grid span{
+    display:block;
+}
+
+.company-grid b{
+    color:#3f594b;
+    font-size:10px;
+}
+
+.company-grid span{
+    margin-top:6px;
+    color:#193328;
+    font-size:11px;
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   PRINT AREA - SCREEN
+===================================================== */
+
+.print-area{
+    display:none;
+}
+
+.print-invoice{
+    position:relative;
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    overflow:hidden;
+    background:#fff;
+    color:#172d22;
+}
+
+.pdf-background{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.pdf-background img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.035;
+}
+
+.print-content{
+    position:relative;
+    z-index:2;
+    padding:11mm;
+    min-height:297mm;
+}
+
+
+/* =====================================================
+   PRINT HEADER
+===================================================== */
+
+.print-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    padding-bottom:5mm;
+    border-bottom:2px solid var(--green);
+}
+
+.print-brand{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.print-logo{
+    width:24mm;
+    height:24mm;
+    display:grid;
+    place-items:center;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.print-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.print-brand h1{
+    margin-bottom:4px;
+    color:var(--green-dark);
+    font-size:19px;
+    line-height:1.2;
+}
+
+.print-brand p{
+    margin-top:3px;
+    max-width:110mm;
+    color:#40564b;
+    font-size:8px;
+    line-height:1.4;
+}
+
+.invoice-title{
+    min-width:40mm;
+    text-align:right;
+}
+
+.invoice-title span{
+    display:block;
+    color:var(--green-dark);
+    font-size:17px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.invoice-title b{
+    display:block;
+    margin-top:4px;
+    font-size:12px;
+}
+
+.invoice-title small{
+    display:block;
+    margin-top:4px;
+    color:#6d7d75;
+    font-size:7px;
+}
+
+
+/* =====================================================
+   PRINT META
+===================================================== */
+
+.meta-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    margin-top:5mm;
+    border:1px solid #cfded5;
+    border-radius:6px;
+    overflow:hidden;
+}
+
+.meta-grid>div{
+    padding:7px 8px;
+    border-right:1px solid #dce7e0;
+    border-bottom:1px solid #dce7e0;
+}
+
+.meta-grid>div:nth-child(3n){
+    border-right:0;
+}
+
+.meta-grid>div:nth-last-child(-n+3){
+    border-bottom:0;
+}
+
+.meta-grid b,
+.meta-grid span{
+    display:block;
+}
+
+.meta-grid b{
+    color:#6d7d75;
+    font-size:7px;
+    text-transform:uppercase;
+}
+
+.meta-grid span{
+    margin-top:3px;
+    color:#20382c;
+    font-size:8px;
+    font-weight:700;
+}
+
+
+/* =====================================================
+   PARTY
+===================================================== */
+
+.party-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4mm;
+    margin-top:5mm;
+}
+
+.party-grid>div{
+    min-height:30mm;
+    padding:9px;
+    border:1px solid #cfded5;
+    border-radius:6px;
+}
+
+.party-grid small{
+    color:var(--green);
+    font-size:7px;
+    font-weight:900;
+    letter-spacing:.4px;
+}
+
+.party-grid h3{
+    margin-top:4px;
+    color:#20382c;
+    font-size:10px;
+}
+
+.party-grid p{
+    margin-top:3px;
+    color:#506259;
+    font-size:7.5px;
+    line-height:1.45;
+}
+
+
+/* =====================================================
+   PRINT ITEMS
+===================================================== */
+
+.print-items{
+    width:100%;
+    margin-top:5mm;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+.print-items th{
+    padding:7px 4px;
+    background:#eaf5ee;
+    border:1px solid #bfd3c6;
+    color:#274837;
+    font-size:7px;
+    font-weight:900;
+}
+
+.print-items td{
+    padding:6px 4px;
+    border:1px solid #d3e0d8;
+    color:#30493c;
+    font-size:7.5px;
+    line-height:1.35;
+    vertical-align:top;
+    word-break:break-word;
+}
+
+.print-items th:nth-child(1){
+    width:5%;
+}
+
+.print-items th:nth-child(2){
+    width:27%;
+}
+
+.print-items th:nth-child(3){
+    width:11%;
+}
+
+.print-items th:nth-child(4){
+    width:12%;
+}
+
+.print-items th:nth-child(5){
+    width:11%;
+}
+
+.print-items th:nth-child(6){
+    width:9%;
+}
+
+.print-items th:nth-child(7){
+    width:9%;
+}
+
+.print-items th:nth-child(8){
+    width:16%;
+}
+
+
+/* =====================================================
+   PRINT LOWER
+===================================================== */
+
+.print-lower{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:5mm;
+    margin-top:5mm;
+}
+
+.print-box{
+    margin-bottom:4mm;
+    padding:9px;
+    border:1px solid #cfded5;
+    border-radius:6px;
+}
+
+.print-box h4{
+    margin-bottom:5px;
+    color:var(--green-dark);
+    font-size:8px;
+}
+
+.print-box p{
+    white-space:pre-line;
+    color:#4a5e54;
+    font-size:7px;
+    line-height:1.5;
+}
+
+.print-summary{
+    padding:9px;
+    border:1px solid #cfded5;
+    border-radius:6px;
+}
+
+.print-summary>div{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:5px 0;
+    border-bottom:1px dashed #d6e2db;
+}
+
+.print-summary span,
+.print-summary b{
+    font-size:7.5px;
+}
+
+.print-summary span{
+    color:#687971;
+}
+
+.print-summary b{
+    color:#274737;
+}
+
+.print-summary .print-grand{
+    margin:5px -9px 0;
+    padding:9px;
+    background:#e9f5ed;
+    border-bottom:0;
+}
+
+.print-summary .print-grand span,
+.print-summary .print-grand b{
+    color:var(--green-dark);
+    font-size:10px;
+    font-weight:900;
+}
+
+.words{
+    display:block!important;
+    margin-top:6px;
+    padding-top:6px;
+    border-top:1px solid #d4e1d9;
+    border-bottom:0!important;
+}
+
+.words small{
+    display:block;
+    color:#75837c;
+    font-size:6.5px;
+    text-transform:uppercase;
+}
+
+.words p{
+    margin-top:3px;
+    color:#304a3c;
+    font-size:7px;
+    line-height:1.4;
+}
+
+
+/* =====================================================
+   SIGNATURE
+===================================================== */
+
+.signature-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20mm;
+    margin-top:7mm;
+    align-items:end;
+}
+
+.signature-row small{
+    color:#697970;
+    font-size:7px;
+}
+
+.sign-line{
+    width:55mm;
+    margin-top:13mm;
+    border-bottom:1px solid #6e7c75;
+}
+
+.owner-sign{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    text-align:right;
+}
+
+.owner-sign .signature-script{
+    margin-top:5px;
+    font-size:28px;
+}
+
+.owner-sign b{
+    margin-top:3px;
+    font-size:8px;
+}
+
+.owner-sign span{
+    margin-top:2px;
+    color:#697970;
+    font-size:6.5px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.print-footer{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-top:6mm;
+    padding-top:4mm;
+    border-top:1px solid #d3e0d8;
+    color:#75837b;
+    font-size:6.5px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid.four{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:800px){
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        min-height:auto;
+    }
+
+    .app{
+        display:block;
+    }
+
+    .main{
+        margin-left:0;
+        width:100%;
+    }
+
+    .sidebar nav{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:4px;
+    }
+
+    .side-company{
+        margin-top:18px;
+    }
+
+    .topbar{
+        position:relative;
+        padding:16px;
+    }
+
+    .page-section{
+        padding:16px;
+    }
+
+    .two-column,
+    .summary-grid{
+        grid-template-columns:1fr;
+    }
+
+    .auth-box{
+        grid-template-columns:1fr;
+    }
+
+    .company-grid{
+        grid-template-columns:1fr;
+    }
+
+    .company-grid .wide{
+        grid-column:auto;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid,
+    .form-grid.four{
+        grid-template-columns:1fr;
+    }
+
+    .invoice-toolbar{
+        flex-direction:column;
+    }
+
+    .toolbar-actions{
+        width:100%;
+    }
+
+    .toolbar-actions button{
+        flex:1;
+    }
+
+    .auth-box>div:first-child{
+        grid-template-columns:1fr;
+    }
+
+    .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .topbar .primary-btn{
+        width:100%;
+    }
+
+    .history-item{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+}
+
+
+/* =====================================================
+   PRINT / SAVE PDF
+   IMPORTANT: SHARP TEXT
+===================================================== */
+
+@media print{
+
+    @page{
+        size:A4 portrait;
+        margin:0;
+    }
+
+    html,
+    body{
+        width:210mm;
+        min-height:297mm;
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+        overflow:visible!important;
+    }
+
+    body{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+        color-adjust:exact!important;
+
+        font-family:
+            Arial,
+            "Segoe UI",
+            sans-serif!important;
+
+        font-size:9px!important;
+
+        -webkit-font-smoothing:antialiased!important;
+        text-rendering:geometricPrecision!important;
+    }
+
+    body *{
+        visibility:hidden;
+    }
+
+    #printArea,
+    #printArea *{
+        visibility:visible;
+    }
+
+    #printArea{
+        display:block!important;
+        position:absolute!important;
+        left:0!important;
+        top:0!important;
+        width:210mm!important;
+        min-height:297mm!important;
+        margin:0!important;
+        padding:0!important;
+        overflow:visible!important;
+        background:#fff!important;
+    }
+
+    .print-invoice{
+        display:block!important;
+        position:relative!important;
+        width:210mm!important;
+        min-height:297mm!important;
+        height:297mm!important;
+        margin:0!important;
+        padding:0!important;
+        overflow:hidden!important;
+        transform:none!important;
+        filter:none!important;
+        box-shadow:none!important;
+        border:0!important;
+        background:#fff!important;
+        page-break-after:avoid!important;
+        page-break-inside:avoid!important;
+    }
+
+    .print-content{
+        position:relative!important;
+        z-index:2!important;
+        width:210mm!important;
+        min-height:297mm!important;
+        padding:11mm!important;
+        transform:none!important;
+        filter:none!important;
+    }
+
+    .pdf-background{
+        display:block!important;
+        position:absolute!important;
+        inset:0!important;
+        width:210mm!important;
+        height:297mm!important;
+        z-index:0!important;
+        overflow:hidden!important;
+    }
+
+    .pdf-background img{
+        display:block!important;
+        position:absolute!important;
+        inset:0!important;
+        width:210mm!important;
+        height:297mm!important;
+        object-fit:cover!important;
+        opacity:.035!important;
+        transform:none!important;
+        filter:none!important;
+    }
+
+    .print-header,
+    .meta-grid,
+    .party-grid,
+    .print-items,
+    .print-lower,
+    .signature-row,
+    .print-footer{
+        page-break-inside:avoid!important;
+        break-inside:avoid!important;
+    }
+
+    .print-items{
+        page-break-before:auto!important;
+        page-break-after:auto!important;
+    }
+
+    .print-items tr{
+        page-break-inside:avoid!important;
+        break-inside:avoid!important;
+    }
+
+    .print-brand h1,
+    .invoice-title span,
+    .invoice-title b,
+    .party-grid h3,
+    .print-summary b,
+    .print-grand b{
+        font-weight:700!important;
+    }
+
+    .print-items th,
+    .print-items td,
+    .meta-grid>div,
+    .party-grid>div,
+    .print-box,
+    .print-summary{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+    }
+
+    .print-footer{
+        position:absolute!important;
+        left:11mm!important;
+        right:11mm!important;
+        bottom:6mm!important;
+    }
+
+}
+
+
+/* =====================================================
+   PRINT SAFETY
+===================================================== */
+
+@media print{
+
+    .sidebar,
+    .topbar,
+    .page-section,
+    .login-screen,
+    button,
+    input,
+    select,
+    textarea{
+        display:none!important;
+    }
+
+    .print-area{
+        display:block!important;
+        visibility:visible!important;
+    }
+
+    .print-area *,
+    .print-area *::before,
+    .print-area *::after{
+        box-sizing:border-box!important;
+    }
+
+    .print-invoice,
+    .print-content{
+        opacity:1!important;
+        visibility:visible!important;
+    }
+
+}
+
+
+/* =====================================================
+   HIGH QUALITY PRINT
+===================================================== */
+
+@media print and (min-resolution:150dpi){
+
+    .print-invoice{
+        image-rendering:auto!important;
+    }
+
+    .print-items td,
+    .print-items th,
+    .meta-grid span,
+    .meta-grid b,
+    .party-grid p,
+    .print-box p,
+    .print-summary span,
+    .print-summary b{
+        text-rendering:geometricPrecision!important;
+    }
+
+}
+
+
+/* =====================================================
+   ECO PELLETS — PREMIUM UI POLISH
+   Fixes stat number overlap + improves typography,
+   cards, subtitles and print payment rows.
+===================================================== */
+
+.stat-card{
+    isolation:isolate;
+    background:
+        linear-gradient(145deg,#ffffff 0%,#fbfefc 100%);
+    border-color:#d6e8dd;
+    box-shadow:
+        0 10px 28px rgba(11,107,58,.07),
+        inset 0 1px 0 rgba(255,255,255,.9);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.stat-card:hover{
+    transform:translateY(-3px);
+    border-color:#b9d9c5;
+    box-shadow:
+        0 16px 35px rgba(11,107,58,.12),
+        inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+/* The decorative circle must never cover the numbers. */
+.stat-card > div:last-child{
+    position:relative;
+    z-index:3;
+    flex:1 1 auto;
+    min-width:0;
+}
+
+.stat-card strong{
+    position:relative;
+    z-index:4;
+    white-space:nowrap;
+    overflow:visible;
+    font-size:clamp(16px,1.45vw,21px);
+    line-height:1.15;
+    letter-spacing:-.35px;
+    text-shadow:0 1px 0 rgba(255,255,255,.75);
+}
+
+.stat-card small{
+    position:relative;
+    z-index:4;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.2px;
+    color:#718078;
+}
+
+.stat-icon{
+    flex:0 0 48px;
+    box-shadow:
+        0 8px 18px rgba(11,107,58,.08),
+        inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+.card-head h2,
+.panel-head h2{
+    letter-spacing:-.25px;
+}
+
+.card-head p,
+.panel-head p{
+    font-size:10.5px;
+    line-height:1.5;
+    color:#75867d;
+}
+
+.form-card,
+.panel{
+    border-color:#d6e8dd;
+    box-shadow:
+        0 10px 30px rgba(18,58,38,.055),
+        inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.auto-label{
+    font-weight:900;
+    letter-spacing:.15px;
+}
+
+/* HSN/SAC field gets a clear automatic-series appearance. */
+#hsnSacNo{
+    font-weight:900;
+    color:#0b6b3a;
+    background:
+        linear-gradient(135deg,#effaf3,#f8fcf9);
+    border-color:#c9e2d2;
+}
+
+/* Cleaner payment rows in the generated A4 invoice. */
+.print-box .payment-detail{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    margin-top:6px;
+    padding:6px 8px;
+    border:1px solid #e0ebe4;
+    border-radius:5px;
+    background:#f8fcf9;
+    white-space:normal;
+}
+
+.print-box .payment-detail b{
+    flex:0 0 42px;
+    color:#2b5942;
+    font-weight:900;
+    font-size:7px;
+    letter-spacing:.2px;
+}
+
+.print-box .payment-detail span{
+    flex:1;
+    min-width:0;
+    margin:0;
+    color:#40594c;
+    font-weight:700;
+    overflow-wrap:anywhere;
+}
+
+#pUPI,
+#pPayment{
+    display:block;
+}
+
+/* Make the HSN hint look intentional rather than plain helper text. */
+#itemsHint{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:4px 8px;
+    border:1px solid #dbece2;
+    border-radius:999px;
+    background:#f5fbf7;
+    color:#5e7468;
+    font-weight:700;
+}
+
+/* Slightly richer controls without changing the existing layout. */
+input,
+select,
+textarea{
+    box-shadow:inset 0 1px 2px rgba(18,58,38,.025);
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+    border-color:#bfd8c8;
+}
+
+.quick-action{
+    box-shadow:0 5px 16px rgba(18,58,38,.035);
+}
+
+/* Mobile safety: long dashboard numbers stay inside their cards. */
+@media(max-width:600px){
+    .stat-card{
+        padding:16px;
+    }
+
+    .stat-card strong{
+        font-size:17px;
+    }
+
+    #itemsHint{
+        max-width:100%;
+        white-space:normal;
+        border-radius:10px;
+    }
+}
+
+
+
+/* =====================================================
+   FINAL PDF LAYOUT + LOGIN PERSISTENCE POLISH
+===================================================== */
+
+@media print{
+
+    #printArea{
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+    }
+
+    .print-invoice{
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        overflow:hidden!important;
+    }
+
+    .print-content{
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        padding:9mm 11mm 12mm!important;
+        display:flex!important;
+        flex-direction:column!important;
+        gap:0!important;
+    }
+
+    .print-header{
+        flex:0 0 auto!important;
+    }
+
+    .meta-grid{
+        flex:0 0 auto!important;
+    }
+
+    .party-grid{
+        flex:0 0 auto!important;
+    }
+
+    .print-items{
+        flex:0 0 auto!important;
+    }
+
+    .print-lower{
+        flex:0 0 auto!important;
+        margin-top:4mm!important;
+    }
+
+    .signature-row{
+        flex:0 0 auto!important;
+        margin-top:auto!important;
+        padding-top:7mm!important;
+    }
+
+    .print-footer{
+        position:static!important;
+        flex:0 0 auto!important;
+        margin-top:5mm!important;
+        padding-top:3mm!important;
+    }
+
+    .print-box{
+        margin-bottom:3mm!important;
+        padding:8px!important;
+    }
+
+    .print-box p{
+        line-height:1.35!important;
+    }
+
+    .print-summary>div{
+        padding:4px 0!important;
+    }
+
+    .print-items th{
+        padding:6px 4px!important;
+    }
+
+    .print-items td{
+        padding:5px 4px!important;
+    }
+
+    .signature-row .sign-line{
+        margin-top:10mm!important;
+    }
+}
+
+/* Keep the generated date/time compact and clearly visible. */
+#pGeneratedAt{
+    white-space:nowrap;
+    letter-spacing:.05px;
+}
+
+@media(max-width:800px){
+    #pGeneratedAt{
+        white-space:normal;
+    }
+}
+
+
+/* =====================================================
+   SMART SUGGESTIONS
+===================================================== */
+
+#customerName,
+#vehicleNo{
+    background-image:linear-gradient(135deg,#ffffff,#f7fcf8);
+}
+
+/* =====================================================
+   ECO PELLETS — FULL-PAGE PREMIUM A4 PRINT DESIGN
+===================================================== */
+
+@media print{
+
+    @page{
+        size:A4 portrait;
+        margin:0;
+    }
+
+    html,
+    body{
+        width:210mm!important;
+        min-width:210mm!important;
+        height:297mm!important;
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+    }
+
+    #printArea{
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        margin:0!important;
+        padding:0!important;
+        overflow:hidden!important;
+    }
+
+    .print-invoice{
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        margin:0!important;
+        padding:0!important;
+        overflow:hidden!important;
+        background:#fff!important;
+        border:0!important;
+        box-shadow:none!important;
+        isolation:isolate!important;
+    }
+
+    /* Premium full-page frame */
+    .print-invoice::before{
+        content:"";
+        position:absolute!important;
+        inset:5mm!important;
+        z-index:1!important;
+        border:1.2px solid #8db49c!important;
+        border-radius:3mm!important;
+        pointer-events:none!important;
+    }
+
+    .print-invoice::after{
+        content:"ECO PELLETS  •  CLEAN ENERGY  •  GREEN FUTURE";
+        position:absolute!important;
+        left:0!important;
+        right:0!important;
+        bottom:2.5mm!important;
+        z-index:1!important;
+        text-align:center!important;
+        color:#9ab1a3!important;
+        font-size:4.8pt!important;
+        font-weight:800!important;
+        letter-spacing:1.4px!important;
+        pointer-events:none!important;
+    }
+
+    .pdf-background{
+        z-index:0!important;
+        opacity:1!important;
+    }
+
+    .pdf-background::after{
+        content:"";
+        position:absolute!important;
+        inset:0!important;
+        background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,255,255,.94))!important;
+        z-index:1!important;
+    }
+
+    .pdf-background img{
+        z-index:0!important;
+        width:100%!important;
+        height:100%!important;
+        object-fit:cover!important;
+        opacity:.075!important;
+        filter:saturate(.9)!important;
+    }
+
+    .print-content{
+        z-index:2!important;
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        padding:9mm 11mm 11mm!important;
+    }
+
+    .print-header{
+        padding:4mm 4mm 4mm!important;
+        border:1px solid #c5dccd!important;
+        border-left:4px solid #0b6b3a!important;
+        border-radius:3mm!important;
+        background:rgba(255,255,255,.90)!important;
+        box-shadow:0 1.5mm 4mm rgba(11,107,58,.07)!important;
+    }
+
+    .print-logo{
+        width:25mm!important;
+        height:25mm!important;
+    }
+
+    .invoice-title{
+        padding:2mm 1mm!important;
+    }
+
+    .meta-grid,
+    .party-grid,
+    .print-items,
+    .print-lower,
+    .signature-row,
+    .print-footer{
+        position:relative!important;
+        z-index:2!important;
+    }
+
+    .meta-grid{
+        margin-top:4mm!important;
+        background:rgba(255,255,255,.92)!important;
+    }
+
+    .party-grid{
+        margin-top:4mm!important;
+    }
+
+    .party-grid>div,
+    .print-box,
+    .print-summary{
+        background:rgba(255,255,255,.94)!important;
+    }
+
+    .print-items{
+        margin-top:4mm!important;
+        background:rgba(255,255,255,.96)!important;
+    }
+
+    .print-items th{
+        background:#e6f3eb!important;
+    }
+
+    .print-lower{
+        margin-top:4mm!important;
+    }
+
+    .signature-row{
+        margin-top:5mm!important;
+        padding-top:0!important;
+    }
+
+    .print-footer{
+        margin-top:4mm!important;
+        padding-top:3mm!important;
+    }
+}
+
+/* =====================================================
+   FINAL SIGNATURE + FULL-PAGE A4 POLISH
+===================================================== */
+.signature-box{
+    min-height:29mm;
+    padding:5mm 6mm 4mm;
+    border:1px solid #c7ddd0;
+    border-radius:3mm;
+    background:rgba(255,255,255,.94);
+    box-sizing:border-box;
+}
+
+.signature-box-title{
+    color:#28543f;
+    font-size:7px;
+    font-weight:900;
+    letter-spacing:.25px;
+    text-transform:none;
+}
+
+.signature-box .sign-line{
+    width:100%;
+    margin-top:8mm;
+    border-bottom:1px solid #718279;
+}
+
+.customer-sign-box small{
+    display:block;
+    margin-top:2mm;
+    color:#78857f;
+    font-size:6px;
+}
+
+.owner-sign{
+    display:block;
+    text-align:right;
+}
+
+.owner-sign .owner-sign-main{
+    min-height:15mm;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:5mm;
+}
+
+.owner-sign .signature-script{
+    margin-top:0;
+    font-size:25px;
+    line-height:1;
+}
+
+.eco-stamp{
+    width:23mm;
+    height:23mm;
+    object-fit:contain;
+    opacity:.82;
+}
+
+.owner-sign .sign-line{
+    margin-top:1mm;
+}
+
+.owner-sign b{
+    display:block;
+    margin-top:2mm;
+    font-size:7.5px;
+}
+
+.owner-sign span{
+    display:block;
+    margin-top:1mm;
+    color:#697970;
+    font-size:6px;
+}
+
+@media print{
+    .print-content{
+        display:flex!important;
+        flex-direction:column!important;
+        justify-content:flex-start!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        box-sizing:border-box!important;
+        padding:7mm 10mm 7mm!important;
+    }
+
+    .print-header{ margin-top:0!important; }
+    .meta-grid{ margin-top:3mm!important; }
+    .party-grid{ margin-top:3mm!important; }
+    .print-items{ margin-top:3mm!important; }
+    .print-lower{
+        margin-top:3mm!important;
+        flex:1 1 auto!important;
+        min-height:58mm!important;
+    }
+
+    .print-lower > div:first-child{
+        min-height:100%!important;
+        display:flex!important;
+        flex-direction:column!important;
+    }
+
+    .print-lower > div:first-child .print-box:last-child{
+        flex:1 1 auto!important;
+    }
+
+    .print-summary{
+        min-height:100%!important;
+        display:flex!important;
+        flex-direction:column!important;
+    }
+
+    .print-summary .words{
+        flex:1 1 auto!important;
+    }
+
+    /* Use the available A4 height instead of leaving a large empty bottom. */
+    .signature-row{
+        margin-top:auto!important;
+        padding-top:4mm!important;
+        gap:8mm!important;
+    }
+
+    .signature-box{
+        min-height:30mm!important;
+        padding:4mm 5mm 3mm!important;
+    }
+
+    .eco-stamp{
+        width:21mm!important;
+        height:21mm!important;
+    }
+
+    .print-footer{
+        margin-top:3mm!important;
+        padding-top:2.5mm!important;
+        min-height:5mm!important;
+        border-top:1px solid #b9d1c2!important;
+    }
+
+    /* Prevent a new page when saving through the browser print dialog. */
+    #printArea,
+    .print-invoice,
+    .print-content{
+        page-break-after:avoid!important;
+        page-break-before:avoid!important;
+    }
+}
+
+
+/* =====================================================
+   FINAL PDF FIX — COMPACT A4 + NEW STAMP
+   ===================================================== */
+
+/* The requested stamp is the supplied black circular image.
+   It is intentionally rendered light on the invoice. */
+.owner-sign{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+    text-align:right !important;
+}
+
+.owner-stamp-wrap{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    min-height:23mm;
+    margin-top:1mm;
+}
+
+.eco-stamp{
+    width:21mm !important;
+    height:21mm !important;
+    object-fit:contain !important;
+    opacity:.24 !important;
+    mix-blend-mode:multiply;
+}
+
+.owner-signature-wrap{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+}
+
+.owner-sign .signature-script.big{
+    color:#163d2a !important;
+    font-size:27px !important;
+    line-height:1 !important;
+    margin:0 !important;
+}
+
+.owner-signature-wrap .sign-line{
+    width:55mm !important;
+    margin-top:2mm !important;
+}
+
+.owner-signature-wrap b{
+    display:block;
+    margin-top:2mm;
+    font-size:7.5px;
+    color:#173629;
+}
+
+.owner-signature-wrap span{
+    display:block;
+    margin-top:1mm;
+    color:#697970;
+    font-size:6px;
+}
+
+/* Compact PDF: remove the flex-stretch that created large blank areas. */
+@media print{
+    .print-content{
+        display:flex !important;
+        flex-direction:column !important;
+        justify-content:flex-start !important;
+        height:297mm !important;
+        min-height:297mm !important;
+        padding:7mm 10mm 7mm !important;
+    }
+
+    .print-lower{
+        flex:0 0 auto !important;
+        min-height:0 !important;
+        height:auto !important;
+        margin-top:3mm !important;
+    }
+
+    .print-lower > div:first-child{
+        min-height:0 !important;
+        height:auto !important;
+        display:block !important;
+    }
+
+    .print-lower > div:first-child .print-box:last-child{
+        flex:0 0 auto !important;
+        min-height:0 !important;
+        height:auto !important;
+    }
+
+    .print-summary{
+        min-height:0 !important;
+        height:auto !important;
+        display:block !important;
+    }
+
+    .print-summary .words{
+        flex:0 0 auto !important;
+        min-height:0 !important;
+    }
+
+    .print-box{
+        margin-bottom:2.5mm !important;
+        padding:6px 7px !important;
+    }
+
+    .print-box p{
+        line-height:1.28 !important;
+    }
+
+    .print-summary > div{
+        padding:2.5px 0 !important;
+    }
+
+    .signature-row{
+        flex:0 0 auto !important;
+        margin-top:3mm !important;
+        padding-top:0 !important;
+        gap:8mm !important;
+        align-items:stretch !important;
+    }
+
+    .signature-box{
+        min-height:31mm !important;
+        padding:4mm 5mm 3mm !important;
+    }
+
+    .owner-stamp-wrap{
+        min-height:20mm !important;
+        margin-top:0 !important;
+    }
+
+    .eco-stamp{
+        width:19mm !important;
+        height:19mm !important;
+        opacity:.24 !important;
+    }
+
+    .owner-sign .signature-script.big{
+        font-size:26px !important;
+    }
+
+    .owner-signature-wrap .sign-line{
+        margin-top:1.5mm !important;
+    }
+
+    .print-footer{
+        margin-top:2mm !important;
+        padding-top:1.5mm !important;
+        min-height:0 !important;
+        border-top:0 !important;
+        font-size:6px !important;
+    }
+
+    /* Remove the decorative horizontal line at the very bottom. */
+    .print-invoice::after{
+        display:none !important;
+    }
+}
+
+/* Also remove the footer line in normal preview/print template. */
+.print-footer{
+    border-top:0 !important;
+}
+
+
+/* =========================================================
+   FINAL FIX — BLUE STAMP + DARK BLUE SIGNATURE + NO STRAY LINES
+   ========================================================= */
+
+/* Keep the supplied stamp above the signature. */
+.owner-sign{
+    position:relative !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+    text-align:right !important;
+}
+
+.owner-stamp-wrap{
+    width:100% !important;
+    min-height:19mm !important;
+    margin:0 !important;
+    display:flex !important;
+    justify-content:flex-end !important;
+    align-items:center !important;
+}
+
+.eco-stamp{
+    width:18mm !important;
+    height:18mm !important;
+    object-fit:contain !important;
+    opacity:.22 !important;
+    mix-blend-mode:normal !important;
+}
+
+/* Dark blue handwritten signature. */
+.owner-sign .signature-script.big,
+.signature-preview .signature-script{
+    color:#123f68 !important;
+}
+
+.owner-sign .signature-script.big{
+    font-size:26px !important;
+    line-height:1 !important;
+    margin:0 !important;
+}
+
+.owner-signature-wrap{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+}
+
+.owner-signature-wrap .sign-line{
+    width:55mm !important;
+    margin-top:1.5mm !important;
+    border-bottom:1px solid #647887 !important;
+}
+
+/* Remove the unwanted line/frame running to the bottom/right edge. */
+.print-invoice::before,
+.print-invoice::after{
+    display:none !important;
+    content:none !important;
+}
+
+.print-footer{
+    border:0 !important;
+    border-top:0 !important;
+    padding-top:0 !important;
+    margin-top:1.5mm !important;
+    min-height:0 !important;
+}
+
+@media print{
+    .print-invoice::before,
+    .print-invoice::after{
+        display:none !important;
+        content:none !important;
+    }
+
+    .print-footer{
+        border:0 !important;
+        border-top:0 !important;
+        padding-top:0 !important;
+        margin-top:1.5mm !important;
+        min-height:0 !important;
+    }
+
+    .signature-row{
+        margin-top:3mm !important;
+        padding-top:0 !important;
+        gap:8mm !important;
+    }
+
+    .signature-box{
+        min-height:29mm !important;
+        padding:4mm 5mm 3mm !important;
+    }
+
+    .owner-stamp-wrap{
+        min-height:18mm !important;
+    }
+
+    .eco-stamp{
+        width:18mm !important;
+        height:18mm !important;
+        opacity:.22 !important;
+    }
+
+    .owner-sign .signature-script.big{
+        color:#123f68 !important;
+        font-size:25px !important;
+    }
+
+    .owner-signature-wrap .sign-line{
+        width:55mm !important;
+        margin-top:1.5mm !important;
+    }
+}
+
+/* =========================================================
+   FINAL USER REQUEST — COLORFUL LOGIN + CLEAN A4 SIGNATURE
+   ========================================================= */
+
+/* ---------- Premium colorful login screen ---------- */
+.login-screen{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    padding:28px;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(34,197,94,.26) 0 12%, transparent 32%),
+        radial-gradient(circle at 92% 18%, rgba(59,130,246,.20) 0 11%, transparent 30%),
+        radial-gradient(circle at 85% 88%, rgba(16,185,129,.22) 0 12%, transparent 30%),
+        radial-gradient(circle at 15% 90%, rgba(245,158,11,.13) 0 10%, transparent 28%),
+        linear-gradient(135deg,#eefbf4 0%,#f7fbff 48%,#edf8f3 100%);
+}
+
+.login-screen::before,
+.login-screen::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(2px);
+    pointer-events:none;
+}
+
+.login-screen::before{
+    width:360px;
+    height:360px;
+    left:-170px;
+    bottom:-150px;
+    background:linear-gradient(135deg,rgba(11,107,58,.20),rgba(59,130,246,.12));
+}
+
+.login-screen::after{
+    width:300px;
+    height:300px;
+    right:-120px;
+    top:-120px;
+    background:linear-gradient(135deg,rgba(34,197,94,.16),rgba(245,158,11,.12));
+}
+
+.login-card{
+    position:relative;
+    z-index:2;
+    width:min(455px,100%);
+    padding:42px 42px 38px;
+    overflow:hidden;
+    background:rgba(255,255,255,.94);
+    border:1px solid rgba(255,255,255,.85);
+    border-radius:30px;
+    box-shadow:
+        0 35px 90px rgba(16,74,47,.16),
+        0 10px 30px rgba(37,99,235,.07),
+        inset 0 1px 0 rgba(255,255,255,.95);
+    backdrop-filter:blur(18px);
+}
+
+.login-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:6px;
+    background:linear-gradient(90deg,#0b6b3a,#22a05a,#2f80ed,#0b6b3a);
+}
+
+.login-logo{
+    width:106px;
+    height:106px;
+    margin:4px auto 0;
+    border-radius:28px;
+    background:linear-gradient(145deg,#f0fff5,#ffffff);
+    border:1px solid #cde8d7;
+    box-shadow:
+        0 14px 30px rgba(11,107,58,.12),
+        0 0 0 8px rgba(11,107,58,.035);
+}
+
+.login-logo img{
+    width:88%;
+    height:88%;
+}
+
+.login-card h1{
+    margin-top:20px;
+    font-size:31px;
+    letter-spacing:-.5px;
+    background:linear-gradient(90deg,#07502d,#0b6b3a,#166534);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.login-card p{
+    margin:7px 0 28px;
+    color:#6b7e75;
+    font-size:13px;
+}
+
+.login-card label{
+    color:#183e2d;
+    font-size:12px;
+    margin:15px 0 7px;
+}
+
+.login-card input{
+    width:100%;
+    min-height:52px;
+    padding:14px 16px;
+    border:1px solid #d4e6dc;
+    border-radius:14px;
+    background:linear-gradient(145deg,#ffffff,#f8fcfa);
+    box-shadow:inset 0 1px 2px rgba(10,70,40,.03);
+}
+
+.login-card input:hover{
+    border-color:#a9cdb8;
+}
+
+.login-card input:focus{
+    border-color:#16864d;
+    box-shadow:
+        0 0 0 4px rgba(11,107,58,.10),
+        0 8px 22px rgba(11,107,58,.07);
+}
+
+.login-btn{
+    min-height:52px;
+    margin-top:22px;
+    border-radius:14px;
+    font-size:13px;
+    letter-spacing:.2px;
+    background:linear-gradient(135deg,#08733d 0%,#119452 55%,#0b6b3a 100%);
+    box-shadow:0 12px 24px rgba(11,107,58,.20);
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 30px rgba(11,107,58,.24);
+}
+
+.login-error{
+    min-height:20px;
+}
+
+/* ---------- Clean signature area ---------- */
+.owner-sign{
+    position:relative !important;
+    overflow:visible !important;
+}
+
+.signature-stage{
+    position:relative;
+    width:65mm;
+    min-height:22mm;
+    margin-left:auto;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+}
+
+.owner-sign .signature-script.big{
+    position:relative;
+    z-index:2;
+    color:#123f68 !important;
+    font-size:27px !important;
+    line-height:1 !important;
+    margin:0 !important;
+    padding-right:4mm;
+}
+
+.stamp-design{
+    position:absolute;
+    z-index:3;
+    right:18mm;
+    bottom:-1mm;
+    width:25mm;
+    height:25mm;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:.7mm;
+    border:1.2px solid rgba(18,63,104,.48);
+    border-radius:50%;
+    background:rgba(180,215,239,.18);
+    color:rgba(18,63,104,.68);
+    font-size:4.2px;
+    line-height:1.05;
+    letter-spacing:.35px;
+    text-align:center;
+    transform:rotate(-8deg);
+    opacity:.68;
+    pointer-events:none;
+    box-shadow:inset 0 0 0 1px rgba(18,63,104,.14);
+}
+
+.stamp-design::before,
+.stamp-design::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    inset:2.2mm;
+    border:1px solid rgba(18,63,104,.24);
+}
+
+.stamp-design::after{
+    inset:5.1mm;
+    border-color:rgba(18,63,104,.12);
+}
+
+.stamp-design span,
+.stamp-design strong{
+    position:relative;
+    z-index:1;
+    display:block;
+}
+
+.stamp-design strong{
+    font-size:4.8px;
+    letter-spacing:.55px;
+}
+
+.owner-signature-wrap .sign-line{
+    width:55mm !important;
+    margin-top:1mm !important;
+    border-bottom:1px solid #647887 !important;
+}
+
+.customer-sign-box .sign-line{
+    width:55mm !important;
+    max-width:100% !important;
+    margin-top:8mm !important;
+}
+
+.print-footer{
+    border:0 !important;
+    border-top:0 !important;
+    box-shadow:none !important;
+}
+
+.print-invoice::before,
+.print-invoice::after{
+    display:none !important;
+    content:none !important;
+}
+
+/* ---------- A4 print version ---------- */
+@media print{
+    .login-screen{
+        display:none !important;
+    }
+
+    .print-invoice{
+        border:0 !important;
+        box-shadow:none !important;
+        overflow:hidden !important;
+    }
+
+    .print-invoice::before,
+    .print-invoice::after{
+        display:none !important;
+        content:none !important;
+    }
+
+    .signature-row{
+        margin-top:3mm !important;
+        padding-top:0 !important;
+        gap:8mm !important;
+        align-items:stretch !important;
+        page-break-inside:avoid !important;
+        break-inside:avoid !important;
+    }
+
+    .signature-box{
+        min-height:29mm !important;
+        border:0 !important;
+        background:transparent !important;
+        box-shadow:none !important;
+        padding:2mm 3mm !important;
+    }
+
+    .customer-sign-box .sign-line{
+        width:55mm !important;
+        margin-top:8mm !important;
+    }
+
+    .signature-stage{
+        width:65mm !important;
+        min-height:21mm !important;
+    }
+
+    .owner-sign .signature-script.big{
+        color:#123f68 !important;
+        font-size:25px !important;
+    }
+
+    .stamp-design{
+        width:24mm !important;
+        height:24mm !important;
+        right:17mm !important;
+        bottom:-1mm !important;
+        opacity:.60 !important;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+
+    .owner-signature-wrap .sign-line{
+        width:55mm !important;
+        margin-top:1mm !important;
+    }
+
+    .print-footer{
+        border:0 !important;
+        border-top:0 !important;
+        padding-top:0 !important;
+        margin-top:1.5mm !important;
+    }
+
+    .print-content{
+        padding-bottom:6mm !important;
+    }
+}
+
+/* ---------- Small screens ---------- */
+@media(max-width:600px){
+    .login-screen{
+        padding:16px;
+    }
+
+    .login-card{
+        padding:36px 22px 30px;
+        border-radius:24px;
+    }
+
+    .login-logo{
+        width:92px;
+        height:92px;
+    }
+
+    .login-card h1{
+        font-size:27px;
+    }
+}
+
+/* =========================================================
+   FINAL FIX — PRINT SIGNATURE BOXES + CLEAN STAMP/SIGNATURE
+   ========================================================= */
+
+/* Both signature areas must remain visible as bordered boxes in PDF. */
+.signature-row{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:8mm !important;
+    align-items:stretch !important;
+}
+
+.signature-box{
+    min-height:34mm !important;
+    padding:4mm 5mm 3mm !important;
+    border:1px solid #c7ddd0 !important;
+    border-radius:3mm !important;
+    background:rgba(255,255,255,.96) !important;
+    box-sizing:border-box !important;
+    overflow:visible !important;
+}
+
+.signature-box-title{
+    display:block !important;
+    color:#28543f !important;
+    font-size:7.5px !important;
+    font-weight:900 !important;
+    line-height:1.2 !important;
+    white-space:nowrap !important;
+}
+
+.customer-sign-box{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    text-align:left !important;
+}
+
+.customer-sign-box .sign-line{
+    width:55mm !important;
+    max-width:100% !important;
+    margin-top:11mm !important;
+    border-bottom:1px solid #647887 !important;
+}
+
+.customer-sign-box small{
+    display:block !important;
+    margin-top:2mm !important;
+    color:#78857f !important;
+    font-size:6px !important;
+    white-space:nowrap !important;
+}
+
+.owner-sign{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+    justify-content:flex-start !important;
+    text-align:right !important;
+}
+
+.owner-stamp-wrap{
+    width:100% !important;
+    min-height:0 !important;
+    margin:0 !important;
+    display:flex !important;
+    justify-content:flex-end !important;
+    align-items:center !important;
+}
+
+.signature-stage{
+    position:relative !important;
+    width:65mm !important;
+    height:24mm !important;
+    min-height:24mm !important;
+    margin-left:auto !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    justify-content:flex-end !important;
+    overflow:visible !important;
+}
+
+.owner-sign .signature-script.big{
+    position:relative !important;
+    z-index:2 !important;
+    color:#123f68 !important;
+    font-size:27px !important;
+    line-height:1 !important;
+    margin:0 !important;
+    padding-right:4mm !important;
+    white-space:nowrap !important;
+}
+
+.stamp-design{
+    position:absolute !important;
+    z-index:3 !important;
+    right:18mm !important;
+    bottom:-1mm !important;
+    width:25mm !important;
+    height:25mm !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:.7mm !important;
+    border:1.2px solid rgba(18,63,104,.48) !important;
+    border-radius:50% !important;
+    background:rgba(180,215,239,.18) !important;
+    color:rgba(18,63,104,.68) !important;
+    font-size:4.2px !important;
+    line-height:1.05 !important;
+    letter-spacing:.35px !important;
+    text-align:center !important;
+    transform:rotate(-8deg) !important;
+    opacity:.68 !important;
+    pointer-events:none !important;
+    box-shadow:inset 0 0 0 1px rgba(18,63,104,.14) !important;
+}
+
+.stamp-design::before,
+.stamp-design::after{
+    content:"" !important;
+    position:absolute !important;
+    border-radius:50% !important;
+    inset:2.2mm !important;
+    border:1px solid rgba(18,63,104,.24) !important;
+}
+
+.stamp-design::after{
+    inset:5.1mm !important;
+    border-color:rgba(18,63,104,.12) !important;
+}
+
+.owner-signature-wrap{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+}
+
+.owner-signature-wrap .sign-line{
+    width:55mm !important;
+    margin-top:1.5mm !important;
+    border-bottom:1px solid #647887 !important;
+}
+
+.owner-signature-wrap b{
+    display:block !important;
+    margin-top:2mm !important;
+    color:#123f68 !important;
+    font-size:7.5px !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+}
+
+.owner-signature-wrap span{
+    display:block !important;
+    margin-top:1mm !important;
+    color:#697970 !important;
+    font-size:6px !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+}
+
+/* Keep the boxes and their contents intact when browser prints to PDF. */
+@media print{
+    .signature-row{
+        display:grid !important;
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+        gap:8mm !important;
+        margin-top:3mm !important;
+        padding-top:0 !important;
+        align-items:stretch !important;
+        page-break-inside:avoid !important;
+        break-inside:avoid !important;
+    }
+
+    .signature-box,
+    .customer-sign-box,
+    .owner-sign{
+        min-height:34mm !important;
+        border:1px solid #c7ddd0 !important;
+        border-radius:3mm !important;
+        background:rgba(255,255,255,.96) !important;
+        box-shadow:none !important;
+        padding:4mm 5mm 3mm !important;
+        overflow:visible !important;
+        page-break-inside:avoid !important;
+        break-inside:avoid !important;
+    }
+
+    .customer-sign-box .sign-line{
+        width:55mm !important;
+        margin-top:11mm !important;
+    }
+
+    .signature-stage{
+        width:65mm !important;
+        height:24mm !important;
+        min-height:24mm !important;
+    }
+
+    .owner-sign .signature-script.big{
+        color:#123f68 !important;
+        font-size:25px !important;
+    }
+
+    .stamp-design{
+        width:24mm !important;
+        height:24mm !important;
+        right:17mm !important;
+        bottom:-1mm !important;
+        opacity:.62 !important;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+
+    .owner-signature-wrap .sign-line{
+        width:55mm !important;
+        margin-top:1.5mm !important;
+    }
+
+    .owner-signature-wrap b{
+        color:#123f68 !important;
+        white-space:nowrap !important;
+    }
+
+    .owner-signature-wrap span{
+        white-space:nowrap !important;
+    }
+}
+
+
+
+/* =========================================================
+   ECO PELLETS — FINAL PDF FIX
+   1) Keep Customer + Owner signature content INSIDE boxes.
+   2) Use the free lower A4 space for Product Highlights.
+   3) Prevent stray text/lines from escaping the signature area.
+   ========================================================= */
+
+.product-highlights{
+    margin-top:4mm;
+    padding:3.5mm 4mm;
+    border:1px solid #c7ddd0;
+    border-radius:3mm;
+    background:rgba(248,252,249,.96);
+    box-sizing:border-box;
+}
+
+.highlights-heading{
+    display:flex;
+    align-items:center;
+    gap:2mm;
+    color:#164d32;
+}
+
+.highlights-heading span{
+    font-size:10px;
+    line-height:1;
+}
+
+.highlights-heading h4{
+    margin:0;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:.2px;
+}
+
+.highlight-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:3mm;
+    margin-top:3mm;
+}
+
+.highlight-item{
+    min-width:0;
+    display:flex;
+    align-items:center;
+    gap:2mm;
+    padding:2.5mm 3mm;
+    border:1px solid #d7e7dd;
+    border-radius:2.5mm;
+    background:#fff;
+    color:#294b3a;
+    font-size:7px;
+    font-weight:800;
+    line-height:1.25;
+}
+
+.highlight-icon{
+    flex:0 0 auto;
+    font-size:10px;
+    line-height:1;
+}
+
+@media print{
+
+    /* Keep the whole signature row together and prevent children from spilling. */
+    .signature-row{
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+        gap:7mm!important;
+        align-items:stretch!important;
+        margin-top:4mm!important;
+        padding-top:0!important;
+        flex:0 0 auto!important;
+        min-height:0!important;
+        page-break-inside:avoid!important;
+        break-inside:avoid!important;
+        overflow:visible!important;
+    }
+
+    .signature-box,
+    .customer-sign-box,
+    .owner-sign{
+        height:30mm!important;
+        min-height:30mm!important;
+        max-height:30mm!important;
+        box-sizing:border-box!important;
+        overflow:hidden!important;
+        page-break-inside:avoid!important;
+        break-inside:avoid!important;
+    }
+
+    .signature-box{
+        padding:3.5mm 4mm 2.5mm!important;
+    }
+
+    .signature-box-title{
+        line-height:1.15!important;
+        white-space:nowrap!important;
+    }
+
+    /* Customer signature stays completely inside its box. */
+    .customer-sign-box{
+        display:flex!important;
+        flex-direction:column!important;
+        align-items:flex-start!important;
+        justify-content:flex-start!important;
+    }
+
+    .customer-sign-box .sign-line{
+        width:55mm!important;
+        max-width:100%!important;
+        margin-top:8mm!important;
+        flex:0 0 auto!important;
+    }
+
+    .customer-sign-box small{
+        margin-top:1.5mm!important;
+        line-height:1.1!important;
+        white-space:nowrap!important;
+    }
+
+    /* Owner side: compact fixed stage so stamp/signature cannot escape. */
+    .owner-sign{
+        display:flex!important;
+        flex-direction:column!important;
+        align-items:flex-end!important;
+        justify-content:flex-start!important;
+        text-align:right!important;
+    }
+
+    .owner-signature-wrap{
+        width:100%!important;
+        display:flex!important;
+        flex-direction:column!important;
+        align-items:flex-end!important;
+        overflow:visible!important;
+    }
+
+    .signature-stage{
+        position:relative!important;
+        width:60mm!important;
+        height:15mm!important;
+        min-height:15mm!important;
+        margin:0!important;
+        display:flex!important;
+        align-items:flex-end!important;
+        justify-content:flex-end!important;
+        overflow:visible!important;
+    }
+
+    .owner-sign .signature-script.big{
+        position:relative!important;
+        z-index:2!important;
+        margin:0 3mm 0 0!important;
+        padding:0!important;
+        color:#123f68!important;
+        font-size:22px!important;
+        line-height:1!important;
+        white-space:nowrap!important;
+    }
+
+    .stamp-design{
+        position:absolute!important;
+        z-index:3!important;
+        right:18mm!important;
+        bottom:-1mm!important;
+        width:18mm!important;
+        height:18mm!important;
+        box-sizing:border-box!important;
+        overflow:hidden!important;
+        font-size:3.4px!important;
+        gap:.45mm!important;
+        opacity:.62!important;
+    }
+
+    .stamp-design strong{
+        font-size:4px!important;
+    }
+
+    .owner-signature-wrap .sign-line{
+        width:50mm!important;
+        max-width:100%!important;
+        margin-top:1mm!important;
+        flex:0 0 auto!important;
+    }
+
+    .owner-signature-wrap b{
+        margin-top:1.2mm!important;
+        font-size:7px!important;
+        line-height:1.05!important;
+        white-space:nowrap!important;
+    }
+
+    .owner-signature-wrap span{
+        margin-top:.8mm!important;
+        font-size:5.7px!important;
+        line-height:1.05!important;
+        white-space:nowrap!important;
+    }
+
+    /* Product highlights occupy the free lower area instead of leaving it blank. */
+    .product-highlights{
+        display:block!important;
+        margin-top:3.5mm!important;
+        padding:3mm 3.5mm!important;
+        min-height:23mm!important;
+        box-sizing:border-box!important;
+        page-break-inside:avoid!important;
+        break-inside:avoid!important;
+    }
+
+    .highlights-heading h4{
+        font-size:7.5px!important;
+    }
+
+    .highlight-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr))!important;
+        gap:3mm!important;
+        margin-top:2.5mm!important;
+    }
+
+    .highlight-item{
+        padding:2.3mm 2.5mm!important;
+        min-height:10mm!important;
+        font-size:6.8px!important;
+        line-height:1.15!important;
+    }
+
+    .highlight-icon{
+        font-size:9px!important;
+    }
+
+    .print-footer{
+        margin-top:2.5mm!important;
+        padding-top:1.5mm!important;
+        min-height:0!important;
+        border-top:0!important;
+        line-height:1.1!important;
+        font-size:5.8px!important;
+    }
+
+    /* The decorative frame/footer pseudo-elements must never create stray lines. */
+    .print-invoice::before,
+    .print-invoice::after{
+        pointer-events:none!important;
+    }
+
+    /* Do not allow any print section to create a second page. */
+    #printArea,
+    .print-invoice,
+    .print-content{
+        page-break-after:avoid!important;
+    }
+}
+
+@media(max-width:600px){
+    .highlight-grid{
+        grid-template-columns:1fr!important;
+    }
+}
+
+/* =========================================================
+   ECO PELLETS — FINAL USER REQUEST FIXES
+   - Blank login fields on refresh
+   - Dashboard numbers always visible
+   - Clean right-side card corners/decorative circle
+   - Signature + stamp arranged like the supplied reference
+   - Full A4 height usage
+   - Footer never overflows
+========================================================= */
+
+/* ---------------- DASHBOARD CARDS ---------------- */
+.stat-card{
+    position:relative!important;
+    overflow:hidden!important;
+    min-width:0!important;
+    border-radius:22px!important;
+}
+
+.stat-card::after{
+    z-index:0!important;
+    width:92px!important;
+    height:92px!important;
+    right:-26px!important;
+    top:-26px!important;
+    border-radius:0 0 0 100%!important;
+    pointer-events:none!important;
+}
+
+.stat-card .stat-icon{
+    position:relative!important;
+    z-index:2!important;
+    flex:0 0 48px!important;
+}
+
+.stat-card > div:last-child{
+    position:relative!important;
+    z-index:3!important;
+    min-width:0!important;
+    overflow:visible!important;
+}
+
+.stat-card small,
+.stat-card strong{
+    position:relative!important;
+    z-index:4!important;
+    display:block!important;
+}
+
+.stat-card strong{
+    font-size:clamp(15px,1.35vw,20px)!important;
+    line-height:1.15!important;
+    white-space:nowrap!important;
+    overflow:visible!important;
+    word-break:normal!important;
+}
+
+/* ---------------- PRINT A4 ---------------- */
+@media print{
+
+    html,
+    body,
+    #printArea,
+    .print-invoice{
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        max-height:297mm!important;
+    }
+
+    .print-invoice{
+        overflow:hidden!important;
+    }
+
+    .print-content{
+        width:210mm!important;
+        height:297mm!important;
+        min-height:297mm!important;
+        max-height:297mm!important;
+        padding:8mm 10mm 6mm!important;
+        display:flex!important;
+        flex-direction:column!important;
+        justify-content:flex-start!important;
+        overflow:hidden!important;
+    }
+
+    .print-header{
+        flex:0 0 auto!important;
+        margin-top:0!important;
+    }
+
+    .meta-grid,
+    .party-grid,
+    .print-items{
+        flex:0 0 auto!important;
+    }
+
+    .meta-grid{
+        margin-top:3mm!important;
+    }
+
+    .party-grid{
+        margin-top:3mm!important;
+    }
+
+    .print-items{
+        margin-top:3mm!important;
+    }
+
+    /* Stretch the lower information area into otherwise unused A4 space. */
+    .print-lower{
+        flex:1 1 auto!important;
+        min-height:62mm!important;
+        margin-top:3mm!important;
+        display:grid!important;
+        grid-template-columns:1.15fr .85fr!important;
+        align-items:stretch!important;
+        gap:5mm!important;
+    }
+
+    .print-lower > div:first-child{
+        min-height:100%!important;
+        display:flex!important;
+        flex-direction:column!important;
+    }
+
+    .print-lower > div:first-child .print-box{
+        margin-bottom:3mm!important;
+    }
+
+    .print-lower > div:first-child .print-box:last-child{
+        flex:1 1 auto!important;
+        margin-bottom:0!important;
+    }
+
+    .print-summary{
+        min-height:100%!important;
+        display:flex!important;
+        flex-direction:column!important;
+    }
+
+    .print-summary .words{
+        flex:1 1 auto!important;
+    }
+
+    /* Signature area: fixed two equal boxes, content stays inside. */
+    .signature-row{
+        flex:0 0 auto!important;
+        width:100%!important;
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+        gap:7mm!important;
+        align-items:stretch!important;
+        margin-top:4mm!important;
+        padding:0!important;
+        min-height:30mm!important;
+        max-height:30mm!important;
+        overflow:visible!important;
+    }
+
+    .signature-box,
+    .customer-sign-box,
+    .owner-sign{
+        width:100%!important;
+        height:30mm!important;
+        min-height:30mm!important;
+        max-height:30mm!important;
+        box-sizing:border-box!important;
+        border:1px solid #bfd8ca!important;
+        border-radius:4mm!important;
+        background:rgba(255,255,255,.97)!important;
+        overflow:hidden!important;
+        padding:3.5mm 4mm 2.5mm!important;
+        page-break-inside:avoid!important;
+        break-inside:avoid!important;
+    }
+
+    .signature-box-title{
+        font-size:7.2px!important;
+        line-height:1.1!important;
+        white-space:nowrap!important;
+        color:#174a32!important;
+    }
+
+    /* Customer side — clean line like the supplied reference. */
+    .customer-sign-box{
+        display:flex!important;
+        flex-direction:column!important;
+        align-items:flex-start!important;
+        justify-content:flex-start!important;
+    }
+
+    .customer-sign-box .sign-line{
+        width:60mm!important;
+        max-width:100%!important;
+        margin-top:9mm!important;
+        border-bottom:1px solid #64766d!important;
+        flex:0 0 auto!important;
+    }
+
+    .customer-sign-box small{
+        margin-top:1.5mm!important;
+        font-size:5.8px!important;
+        line-height:1.1!important;
+        white-space:nowrap!important;
+        color:#78857f!important;
+    }
+
+    /* Owner side — stamp on left, signature on right, line underneath. */
+    .owner-sign{
+        display:flex!important;
+        flex-direction:column!important;
+        align-items:flex-end!important;
+        justify-content:flex-start!important;
+        text-align:right!important;
+    }
+
+    .owner-signature-wrap{
+        width:100%!important;
+        display:flex!important;
+        flex-direction:column!important;
+        align-items:flex-end!important;
+        overflow:visible!important;
+    }
+
+    .signature-stage{
+        position:relative!important;
+        width:70mm!important;
+        max-width:100%!important;
+        height:17mm!important;
+        min-height:17mm!important;
+        margin:0!important;
+        display:block!important;
+        overflow:visible!important;
+    }
+
+    .owner-sign .signature-script.big{
+        position:absolute!important;
+        z-index:4!important;
+        right:0!important;
+        bottom:0!important;
+        margin:0!important;
+        padding:0!important;
+        color:#123f68!important;
+        font-family:"Brush Script MT","Segoe Script","URW Chancery L",cursive!important;
+        font-size:24px!important;
+        font-weight:700!important;
+        line-height:1!important;
+        white-space:nowrap!important;
+    }
+
+    .stamp-design{
+        position:absolute!important;
+        z-index:3!important;
+        left:2mm!important;
+        right:auto!important;
+        bottom:-1mm!important;
+        width:20mm!important;
+        height:20mm!important;
+        box-sizing:border-box!important;
+        overflow:hidden!important;
+        display:flex!important;
+        flex-direction:column!important;
+        align-items:center!important;
+        justify-content:center!important;
+        gap:.5mm!important;
+        border:1px solid rgba(46,95,125,.35)!important;
+        border-radius:50%!important;
+        color:#6e91a8!important;
+        background:rgba(235,244,249,.28)!important;
+        font-size:3.2px!important;
+        line-height:1.1!important;
+        letter-spacing:.15px!important;
+        opacity:.72!important;
+        transform:rotate(-4deg)!important;
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+    }
+
+    .stamp-design::before{
+        content:""!important;
+        position:absolute!important;
+        inset:1.5mm!important;
+        border:1px solid rgba(46,95,125,.3)!important;
+        border-radius:50%!important;
+    }
+
+    .stamp-design strong{
+        font-size:3.8px!important;
+        font-weight:900!important;
+        z-index:1!important;
+    }
+
+    .stamp-design span{
+        z-index:1!important;
+        white-space:nowrap!important;
+    }
+
+    .owner-signature-wrap .sign-line{
+        width:55mm!important;
+        max-width:100%!important;
+        margin-top:1mm!important;
+        border-bottom:1px solid #64766d!important;
+        flex:0 0 auto!important;
+    }
+
+    .owner-signature-wrap b{
+        margin-top:1.2mm!important;
+        font-size:6.8px!important;
+        line-height:1.05!important;
+        color:#123f68!important;
+        white-space:nowrap!important;
+    }
+
+    .owner-signature-wrap span{
+        margin-top:.8mm!important;
+        font-size:5.5px!important;
+        line-height:1.05!important;
+        color:#697970!important;
+        white-space:nowrap!important;
+    }
+
+    /* Product highlights: full width and safely inside A4. */
+    .product-highlights{
+        flex:0 0 auto!important;
+        width:100%!important;
+        margin:3mm 0 0!important;
+        padding:3mm 3.5mm!important;
+        min-height:23mm!important;
+        border:1px solid #bfd8ca!important;
+        border-radius:4mm!important;
+        background:rgba(248,252,249,.97)!important;
+        box-sizing:border-box!important;
+        page-break-inside:avoid!important;
+        break-inside:avoid!important;
+    }
+
+    .highlights-heading h4{
+        font-size:7.5px!important;
+        line-height:1.1!important;
+    }
+
+    .highlight-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr))!important;
+        gap:3mm!important;
+        margin-top:2.5mm!important;
+    }
+
+    .highlight-item{
+        min-width:0!important;
+        min-height:10mm!important;
+        padding:2.3mm 2.5mm!important;
+        font-size:6.7px!important;
+        line-height:1.15!important;
+        border-radius:3mm!important;
+        overflow:hidden!important;
+        white-space:nowrap!important;
+    }
+
+    .highlight-icon{
+        flex:0 0 auto!important;
+        font-size:9px!important;
+    }
+
+    /* Footer is always inside the printable width and never clipped. */
+    .print-footer{
+        position:static!important;
+        flex:0 0 auto!important;
+        width:100%!important;
+        min-width:0!important;
+        max-width:100%!important;
+        margin:2.5mm 0 0!important;
+        padding:1.5mm 0 0!important;
+        border-top:1px solid #c6d8ce!important;
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr) auto!important;
+        align-items:center!important;
+        gap:4mm!important;
+        font-size:5.6px!important;
+        line-height:1.1!important;
+        color:#75837b!important;
+        box-sizing:border-box!important;
+        overflow:hidden!important;
+    }
+
+    .print-footer span{
+        min-width:0!important;
+        white-space:nowrap!important;
+        overflow:hidden!important;
+        text-overflow:clip!important;
+    }
+
+    .print-footer span:last-child{
+        text-align:right!important;
+    }
+}
+
+
+/* =========================================================
+   REAL SIGNATURE + STAMP IMAGE — USER SUPPLIED REFERENCE
+   Dark blue signature + light blue company stamp
+========================================================= */
+@media print{
+    .owner-sign .signature-stage{
+        width:70mm!important;
+        height:18mm!important;
+        display:flex!important;
+        align-items:center!important;
+        justify-content:flex-end!important;
+        overflow:visible!important;
+        margin:0!important;
+    }
+
+    .real-signature-stamp{
+        display:block!important;
+        width:66mm!important;
+        height:auto!important;
+        max-width:100%!important;
+        max-height:18mm!important;
+        object-fit:contain!important;
+        object-position:center!important;
+        margin:0!important;
+        padding:0!important;
+        border:0!important;
+        background:transparent!important;
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+    }
+
+    /* Do not draw the old CSS-generated stamp/signature. */
+    .owner-sign .signature-script.big,
+    .owner-sign .stamp-design{
+        display:none!important;
+    }
+}

@@ -1,0 +1,2114 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eco Pellets Industries — GST Invoice</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="login-logo">
+            <img
+                src="eco-logo.png"
+                alt="Eco Pellets"
+            >
+        </div>
+
+        <h1>Eco Pellets</h1>
+<
+        <p>Secure GST Invoice Manager</p>
+
+        <form id="loginForm">
+
+            <label>Login ID</label>
+
+            <input
+                id="loginId"
+                type="text"
+                autocomplete="off"
+                required
+                placeholder="Enter login ID"
+            >
+
+            <label>Password</label>
+
+            <input
+                id="loginPassword"
+                type="password"
+                autocomplete="new-password"
+                required
+                placeholder="Enter password"
+            >
+
+            <button
+                class="primary-btn login-btn"
+                type="submit"
+            >
+                Login
+            </button>
+
+            <div
+                id="loginError"
+                class="login-error"
+            ></div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     APP
+===================================================== -->
+
+<div id="app" class="app hidden">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            <img
+                src="eco-logo.png"
+                alt="Eco Pellets"
+            >
+        </div>
+
+        <div>
+            <b>Eco Pellets</b>
+
+            <small>
+                GST Invoice Manager
+            </small>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <button
+            class="nav-btn active"
+            data-section="dashboard"
+        >
+            <span class="nav-icon">▦</span>
+            Dashboard
+        </button>
+
+
+        <button
+            class="nav-btn"
+            data-section="create"
+        >
+            <span class="nav-icon">＋</span>
+            New Invoice
+        </button>
+
+
+        <button
+            class="nav-btn"
+            data-section="history"
+        >
+            <span class="nav-icon">◷</span>
+            Invoice History
+        </button>
+
+
+        <button
+            class="nav-btn"
+            data-section="settings"
+        >
+            <span class="nav-icon">⚙</span>
+            Company Settings
+        </button>
+
+    </nav>
+
+
+    <div class="side-company">
+
+        <strong>
+            Eco Pellets Industries
+        </strong>
+
+        <small>
+            GSTIN: 24CSGPD468M1ZG
+        </small>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+<header class="topbar">
+
+    <div>
+
+        <h1 id="pageTitle">
+            Dashboard
+        </h1>
+
+        <p id="pageSubtitle">
+            Manage your GST invoices
+        </p>
+
+    </div>
+
+
+    <button
+        id="topNewInvoice"
+        class="primary-btn"
+    >
+        + New Invoice
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section
+    id="dashboard"
+    class="page-section active"
+>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🧾
+            </div>
+
+            <div>
+
+                <small>
+                    Total Invoices
+                </small>
+
+                <strong id="statInvoices">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ₹
+            </div>
+
+            <div>
+
+                <small>
+                    Total Sales
+                </small>
+
+                <strong id="statSales">
+                    ₹0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                GST
+            </div>
+
+            <div>
+
+                <small>
+                    Total GST
+                </small>
+
+                <strong id="statGST">
+                    ₹0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📅
+            </div>
+
+            <div>
+
+                <small>
+                    This Month
+                </small>
+
+                <strong id="statMonth">
+                    ₹0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+
+                <h2>
+                    Recent Invoices
+                </h2>
+
+                <p>
+                    Your latest saved invoices
+                </p>
+
+            </div>
+
+
+            <button
+                id="viewHistory"
+                class="secondary-btn"
+            >
+                View All
+            </button>
+
+        </div>
+
+
+        <div id="recentInvoices"></div>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                ＋
+            </div>
+
+            <h3>
+                Create Invoice
+            </h3>
+
+            <p>
+                Create a new professional GST invoice.
+            </p>
+
+            <button
+                id="quickCreate"
+                class="primary-btn"
+            >
+                Create Invoice
+            </button>
+
+        </div>
+
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                ⚙
+            </div>
+
+            <h3>
+                Company Settings
+            </h3>
+
+            <p>
+                View permanent company and bank details.
+            </p>
+
+            <button
+                id="quickSettings"
+                class="secondary-btn"
+            >
+                Open Settings
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CREATE INVOICE
+===================================================== -->
+
+<section
+    id="create"
+    class="page-section"
+>
+
+
+<div class="invoice-toolbar">
+
+    <button
+        id="backDashboard"
+        class="secondary-btn"
+    >
+        ← Dashboard
+    </button>
+
+
+    <div class="toolbar-actions">
+
+        <button
+            type="button"
+            id="clearInvoice"
+            class="secondary-btn"
+        >
+            Clear
+        </button>
+
+
+        <button
+            type="button"
+            id="duplicateCurrent"
+            class="secondary-btn"
+        >
+            Duplicate
+        </button>
+
+
+        <button
+            type="button"
+            id="printInvoice"
+            class="secondary-btn"
+        >
+            🖨 Print / Save PDF
+        </button>
+
+
+        <button
+            type="button"
+            id="saveInvoice"
+            class="primary-btn"
+        >
+            Save Invoice
+        </button>
+
+    </div>
+
+</div>
+
+
+<form id="invoiceForm">
+
+
+<!-- =====================================================
+     INVOICE INFORMATION
+===================================================== -->
+
+<div class="form-card">
+
+    <div class="card-head">
+
+        <div>
+
+            <h2>
+                Invoice Information
+            </h2>
+
+            <p>
+                Invoice number, dates and transport details
+            </p>
+
+        </div>
+
+        <span class="badge">
+            GST
+        </span>
+
+    </div>
+
+
+    <div class="form-grid four">
+
+
+        <label>
+
+            Invoice Number *
+
+            <input
+                id="invoiceNumber"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Invoice Date *
+
+            <input
+                id="invoiceDate"
+                type="date"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Due Date
+
+            <span class="auto-label">
+                Auto +7 Days
+            </span>
+
+            <input
+                id="dueDate"
+                type="date"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            Place of Supply
+
+            <select
+                id="placeOfSupply"
+            ></select>
+
+        </label>
+
+
+        <label>
+
+            E-way Bill No.
+
+            <span class="auto-label">
+                Auto
+            </span>
+
+            <input
+                id="ewayBillNo"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            HSN / SAC No.
+
+            <span class="auto-label">
+                Auto • Series 1910+
+            </span>
+
+            <input
+                id="hsnSacNo"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            Vehicle No.
+
+            <input
+                id="vehicleNo"
+                list="vehicleSuggestions"
+                autocomplete="off"
+                placeholder="Vehicle Number"
+            >
+
+            <datalist
+                id="vehicleSuggestions"
+            ></datalist>
+
+        </label>
+
+
+        <label>
+
+            Reverse Charge
+
+            <select id="reverseCharge">
+
+                <option>
+                    No
+                </option>
+
+                <option>
+                    Yes
+                </option>
+
+            </select>
+
+        </label>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SELLER / CUSTOMER
+===================================================== -->
+
+<div class="two-column">
+
+
+<!-- SELLER -->
+
+<div class="form-card">
+
+    <div class="card-head">
+
+        <div>
+
+            <h2>
+                Seller Details
+            </h2>
+
+            <p>
+                Permanent company information
+            </p>
+
+        </div>
+
+        <span class="badge">
+            Permanent
+        </span>
+
+    </div>
+
+
+    <div class="form-grid">
+
+
+        <label>
+
+            Business Name
+
+            <input
+                id="sellerName"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            GSTIN
+
+            <input
+                id="sellerGSTIN"
+                readonly
+            >
+
+        </label>
+
+
+        <label class="full">
+
+            Address
+
+            <textarea
+                id="sellerAddress"
+                rows="3"
+                readonly
+            ></textarea>
+
+        </label>
+
+
+        <label>
+
+            State
+
+            <select
+                id="sellerState"
+                disabled
+            ></select>
+
+        </label>
+
+
+        <label>
+
+            State Code
+
+            <input
+                id="sellerStateCode"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            Phone
+
+            <input
+                id="sellerPhone"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            Email
+
+            <input
+                id="sellerEmail"
+                readonly
+            >
+
+        </label>
+
+    </div>
+
+</div>
+
+
+<!-- CUSTOMER -->
+
+<div class="form-card">
+
+    <div class="card-head">
+
+        <div>
+
+            <h2>
+                Bill To
+            </h2>
+
+            <p>
+                Customer information
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-grid">
+
+
+        <label class="full">
+
+            Customer Name *
+
+            <input
+                id="customerName"
+                list="customerSuggestions"
+                autocomplete="off"
+                required
+                placeholder="Customer name"
+            >
+
+            <datalist
+                id="customerSuggestions"
+            ></datalist>
+
+        </label>
+
+
+        <label class="full">
+
+            Customer GSTIN
+
+            <input
+                id="customerGSTIN"
+                maxlength="15"
+                placeholder="Optional"
+            >
+
+        </label>
+
+
+        <label class="full">
+
+            Address
+
+            <textarea
+                id="customerAddress"
+                rows="3"
+                placeholder="Customer address"
+            ></textarea>
+
+        </label>
+
+
+        <label>
+
+            State
+
+            <select
+                id="customerState"
+            ></select>
+
+        </label>
+
+
+        <label>
+
+            State Code
+
+            <input
+                id="customerStateCode"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            Phone
+
+            <input
+                id="customerPhone"
+            >
+
+        </label>
+
+
+        <label>
+
+            Email
+
+            <input
+                id="customerEmail"
+                type="email"
+            >
+
+        </label>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ITEMS
+===================================================== -->
+
+<div class="form-card">
+
+    <div class="card-head">
+
+        <div>
+
+            <h2>
+                Items
+            </h2>
+
+            <p id="itemsHint">
+                Pine Wood Pellets • HSN/SAC Auto •
+                Quantity in KGS
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="addItem"
+            class="primary-btn small"
+        >
+            + Add Item
+        </button>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+        <table class="item-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        #
+                    </th>
+
+                    <th>
+                        Description
+                    </th>
+
+                    <th>
+                        HSN / SAC
+                    </th>
+
+                    <th>
+                        Quantity (KGS)
+                    </th>
+
+                    <th>
+                        Rate
+                    </th>
+
+                    <th>
+                        Discount %
+                    </th>
+
+                    <th>
+                        GST %
+                    </th>
+
+                    <th>
+                        Cess %
+                    </th>
+
+                    <th>
+                        Taxable
+                    </th>
+
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="itemsBody"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PAYMENT / TOTAL
+===================================================== -->
+
+<div class="summary-grid">
+
+
+<!-- PAYMENT -->
+
+<div class="form-card">
+
+    <div class="card-head">
+
+        <div>
+
+            <h2>
+                Payment & Additional Details
+            </h2>
+
+            <p>
+                Permanent bank details and payment information
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-grid">
+
+
+        <label class="full">
+
+            Payment Status
+
+            <select id="paymentStatus">
+
+                <option>
+                    Unpaid
+                </option>
+
+                <option>
+                    Paid
+                </option>
+
+                <option>
+                    Partially Paid
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label class="full">
+
+            Bank Details
+
+            <textarea
+                id="bankDetails"
+                rows="6"
+                readonly
+            ></textarea>
+
+        </label>
+
+
+        <label>
+
+            UPI ID
+
+            <input
+                id="upiId"
+                readonly
+            >
+
+        </label>
+
+
+        <label>
+
+            Notes
+
+            <input
+                id="notes"
+                placeholder="Additional notes"
+            >
+
+        </label>
+
+
+        <label class="full">
+
+            Terms & Conditions
+
+            <textarea
+                id="terms"
+                rows="7"
+                readonly
+            ></textarea>
+
+        </label>
+
+    </div>
+
+</div>
+
+
+<!-- TOTALS -->
+
+<div class="form-card totals-card">
+
+    <div class="card-head">
+
+        <div>
+
+            <h2>
+                Invoice Summary
+            </h2>
+
+            <p>
+                Automatic GST calculation
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Subtotal
+        </span>
+
+        <b id="summarySubtotal">
+            ₹0.00
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Discount
+        </span>
+
+        <b id="summaryDiscount">
+            ₹0.00
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Taxable Amount
+        </span>
+
+        <b id="summaryTaxable">
+            ₹0.00
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            CGST
+        </span>
+
+        <b id="summaryCGST">
+            ₹0.00
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            SGST
+        </span>
+
+        <b id="summarySGST">
+            ₹0.00
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            IGST
+        </span>
+
+        <b id="summaryIGST">
+            ₹0.00
+        </b>
+
+    </div>
+
+
+    <div class="summary-row">
+
+        <span>
+            Cess
+        </span>
+
+        <b id="summaryCess">
+            ₹0.00
+        </b>
+
+    </div>
+
+
+    <div class="grand-total">
+
+        <span>
+            Grand Total
+        </span>
+
+        <strong id="summaryTotal">
+            ₹0.00
+        </strong>
+
+    </div>
+
+
+    <div class="amount-words">
+
+        <small>
+            Amount in Words
+        </small>
+
+        <p id="amountWords">
+            Rupees Zero Only
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     AUTHORIZATION
+===================================================== -->
+
+<div class="form-card">
+
+    <div class="card-head">
+
+        <div>
+
+            <h2>
+                Authorization
+            </h2>
+
+            <p>
+                Permanent owner authorization
+            </p>
+
+        </div>
+
+        <span class="badge">
+            Permanent
+        </span>
+
+    </div>
+
+
+    <div class="auth-box">
+
+        <div>
+
+            <label>
+
+                Authorized Person
+
+                <input
+                    id="authorizedPerson"
+                    readonly
+                >
+
+            </label>
+
+
+            <label>
+
+                Designation
+
+                <input
+                    id="designation"
+                    readonly
+                >
+
+            </label>
+
+        </div>
+
+
+        <div class="signature-preview">
+
+            <div class="signature-script">
+                Jainil
+            </div>
+
+            <strong>
+                JAINIL DHAMELIYA
+            </strong>
+
+            <small>
+                Owner / Authorized Signatory
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</form>
+
+</section>
+
+
+<!-- =====================================================
+     HISTORY
+===================================================== -->
+
+<section
+    id="history"
+    class="page-section"
+>
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+
+                <h2>
+                    Invoice History
+                </h2>
+
+                <p>
+                    Saved invoices stored in this browser
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="historyList"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SETTINGS
+===================================================== -->
+
+<section
+    id="settings"
+    class="page-section"
+>
+
+    <div class="form-card">
+
+        <div class="card-head">
+
+            <div>
+
+                <h2>
+                    Company Settings
+                </h2>
+
+                <p>
+                    Permanent Eco Pellets Industries details
+                </p>
+
+            </div>
+
+            <span class="badge">
+                Locked
+            </span>
+
+        </div>
+
+
+        <div class="company-grid">
+
+
+            <div>
+
+                <b>
+                    Company
+                </b>
+
+                <span>
+                    Eco Pellets Industries
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    GSTIN
+                </b>
+
+                <span>
+                    24CSGPD468M1ZG
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    Phone
+                </b>
+
+                <span>
+                    9558950908
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    Email
+                </b>
+
+                <span>
+                    jainildhameliya21@gmail.com
+                </span>
+
+            </div>
+
+
+            <div class="wide">
+
+                <b>
+                    Address
+                </b>
+
+                <span>
+                    PLOT NO. I / 2 S.NO. 84, AT. DEMALIYA,
+                    DEMALIYA DEHGAM, ROAD OPP ASHIRWAD FARM,
+                    TA. DEHGAM, Demaliya, Ahmedabad,
+                    Gujarat 382433
+                </span>
+
+            </div>
+
+
+            <div class="wide">
+
+                <b>
+                    Bank
+                </b>
+
+                <span>
+
+                    Name:
+                    VARSHABAHEN VIJAYKUMAR DHAMELIYA
+
+                    <br>
+
+                    IFSC Code:
+                    COSB0000072
+
+                    <br>
+
+                    Account No:
+                    072100107214
+
+                    <br>
+
+                    Bank:
+                    Cosmos Co-operative Bank,
+                    NARODA INDUSTRIAL ESTATE BRANCH
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<!-- =====================================================
+     PRINT / PDF
+===================================================== -->
+
+<div
+    id="printArea"
+    class="print-area"
+>
+
+<article class="print-invoice">
+
+
+    <!-- BACKGROUND LOGO -->
+
+    <div class="pdf-background">
+
+        <img
+            src="eco-logo.png"
+            alt=""
+        >
+
+    </div>
+
+
+    <div class="print-content">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="print-header">
+
+
+            <div class="print-brand">
+
+
+                <div class="print-logo">
+
+                    <img
+                        src="eco-logo.png"
+                        alt="Eco Pellets"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <h1 id="pSellerName">
+                        Eco Pellets Industries
+                    </h1>
+
+                    <p id="pSellerAddress"></p>
+
+                    <p>
+
+                        <b>
+                            GSTIN:
+                        </b>
+
+                        <span id="pSellerGSTIN"></span>
+
+                    </p>
+
+                    <p id="pSellerContact"></p>
+
+                </div>
+
+            </div>
+
+
+            <div class="invoice-title">
+
+                <span>
+                    TAX INVOICE
+                </span>
+
+                <b id="pInvoiceNumber"></b>
+
+                <small>
+                    Original for Recipient
+                </small>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             META
+        ================================================== -->
+
+        <div class="meta-grid">
+
+
+            <div>
+
+                <b>
+                    Invoice Date
+                </b>
+
+                <span id="pInvoiceDate"></span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    Due Date
+                </b>
+
+                <span id="pDueDate"></span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    E-way Bill No.
+                </b>
+
+                <span id="pEway"></span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    Generated On
+                </b>
+
+                <span id="pGeneratedAt"></span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    Vehicle No.
+                </b>
+
+                <span id="pVehicle"></span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    Place of Supply
+                </b>
+
+                <span id="pSupply"></span>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    Reverse Charge
+                </b>
+
+                <span id="pReverse"></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SELLER / CUSTOMER
+        ================================================== -->
+
+        <div class="party-grid">
+
+
+            <div>
+
+                <small>
+                    SELLER
+                </small>
+
+                <h3 id="pFromName"></h3>
+
+                <p id="pFromAddress"></p>
+
+                <p>
+
+                    <b>
+                        GSTIN:
+                    </b>
+
+                    <span id="pFromGSTIN"></span>
+
+                </p>
+
+                <p>
+
+                    <b>
+                        State:
+                    </b>
+
+                    <span id="pFromState"></span>
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <small>
+                    BILL TO
+                </small>
+
+                <h3 id="pCustomerName"></h3>
+
+                <p id="pCustomerAddress"></p>
+
+                <p>
+
+                    <b>
+                        GSTIN:
+                    </b>
+
+                    <span id="pCustomerGSTIN"></span>
+
+                </p>
+
+                <p>
+
+                    <b>
+                        State:
+                    </b>
+
+                    <span id="pCustomerState"></span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ITEMS
+        ================================================== -->
+
+        <table class="print-items">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        #
+                    </th>
+
+                    <th>
+                        Description
+                    </th>
+
+                    <th>
+                        HSN/SAC
+                    </th>
+
+                    <th>
+                        Quantity (KGS)
+                    </th>
+
+                    <th>
+                        Rate
+                    </th>
+
+                    <th>
+                        Disc.
+                    </th>
+
+                    <th>
+                        GST
+                    </th>
+
+                    <th>
+                        Taxable
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="pItems"></tbody>
+
+        </table>
+
+
+        <!-- =================================================
+             LOWER SECTION
+        ================================================== -->
+
+        <div class="print-lower">
+
+
+            <div>
+
+
+                <!-- BANK -->
+
+                <div class="print-box">
+
+                    <h4>
+                        Payment & Bank Details
+                    </h4>
+
+                    <p id="pBank"></p>
+
+
+                    <!-- UPI + STATUS SAME LINE -->
+
+                    <p class="payment-detail">
+
+                        <b>
+                            UPI
+                        </b>
+
+                        <span id="pUPI"></span>
+
+                        <span class="payment-separator">
+                            |
+                        </span>
+
+                        <b>
+                            Status
+                        </b>
+
+                        <span id="pPayment"></span>
+
+                    </p>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <div class="print-box">
+
+                    <h4>
+                        Terms & Conditions
+                    </h4>
+
+                    <p id="pTerms"></p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <div class="print-summary">
+
+
+                <div>
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <b id="pSubtotal"></b>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Discount
+                    </span>
+
+                    <b id="pDiscount"></b>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Taxable
+                    </span>
+
+                    <b id="pTaxable"></b>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        CGST
+                    </span>
+
+                    <b id="pCGST"></b>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        SGST
+                    </span>
+
+                    <b id="pSGST"></b>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        IGST
+                    </span>
+
+                    <b id="pIGST"></b>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Cess
+                    </span>
+
+                    <b id="pCess"></b>
+
+                </div>
+
+
+                <div class="print-grand">
+
+                    <span>
+                        Grand Total
+                    </span>
+
+                    <b id="pTotal"></b>
+
+                </div>
+
+
+                <div class="words">
+
+                    <small>
+                        Amount in Words
+                    </small>
+
+                    <p id="pWords"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SIGNATURE + STAMP
+             ACTUAL SUPPLIED IMAGE
+        ================================================== -->
+
+        <div class="signature-row">
+
+
+            <!-- CUSTOMER SIGNATURE -->
+
+            <div class="signature-box customer-sign-box">
+
+                <div class="signature-box-title">
+                    Customer Signature
+                </div>
+
+                <div class="sign-line"></div>
+
+                <small>
+                    Signature / Seal
+                </small>
+
+            </div>
+
+
+            <!-- OWNER SIGNATURE -->
+
+            <div class="owner-sign signature-box">
+
+                <div class="signature-box-title">
+                    For Eco Pellets Industries
+                </div>
+
+
+                <div class="owner-signature-wrap">
+
+
+                    <div
+                        class="signature-stage"
+                        style="
+                            position:relative;
+                            width:70mm;
+                            height:18mm;
+                            display:flex;
+                            align-items:center;
+                            justify-content:flex-end;
+                            overflow:visible;
+                        "
+                    >
+
+                        <!--
+                            YOUR SUPPLIED SIGNATURE + STAMP IMAGE
+
+                            Keep signature-stamp.png
+                            in the same folder as index.html
+                        -->
+
+                        <img
+                            src="signature-stamp.png"
+                            alt="Jainil Signature and Eco Pellets Industries Stamp"
+                            style="
+                                display:block;
+                                width:66mm;
+                                height:auto;
+                                max-width:100%;
+                                max-height:18mm;
+                                object-fit:contain;
+                                object-position:center;
+                                margin:0;
+                                padding:0;
+                                border:0;
+                                background:transparent;
+                                -webkit-print-color-adjust:exact;
+                                print-color-adjust:exact;
+                            "
+                        >
+
+                    </div>
+
+
+                    <div class="sign-line"></div>
+
+
+                    <b>
+                        JAINIL DHAMELIYA
+                    </b>
+
+
+                    <span>
+                        Owner / Authorized Signatory
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUCT HIGHLIGHTS
+        ================================================== -->
+
+        <section
+            class="product-highlights"
+            aria-label="Eco Pellets product highlights"
+        >
+
+            <div class="highlights-heading">
+
+                <span>
+                    🍃
+                </span>
+
+                <h4>
+                    Key Features / Product Highlights
+                </h4>
+
+            </div>
+
+
+            <div class="highlight-grid">
+
+
+                <div class="highlight-item">
+
+                    <span class="highlight-icon">
+                        🍃
+                    </span>
+
+                    <span>
+                        High Calorific Value
+                    </span>
+
+                </div>
+
+
+                <div class="highlight-item">
+
+                    <span class="highlight-icon">
+                        ♻️
+                    </span>
+
+                    <span>
+                        100% Eco-Friendly &amp; Biomass
+                    </span>
+
+                </div>
+
+
+                <div class="highlight-item">
+
+                    <span class="highlight-icon">
+                        📉
+                    </span>
+
+                    <span>
+                        Low Ash Content
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="print-footer">
+
+            <span>
+                Thank you for your business.
+            </span>
+
+            <span>
+                Eco Pellets Industries | GST Invoice
+            </span>
+
+        </footer>
+
+
+    </div>
+
+</article>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
